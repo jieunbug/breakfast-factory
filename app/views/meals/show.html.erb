@@ -1,0 +1,7 @@
+<h1>
+<%= @meal.name %>: <%= Recipe.find(@meal.recipe01).name %> & <%= Recipe.find(@meal.recipe02).name %>
+</h1>
+
+<% @list.each do |step| %>
+<%= step[3] %>: <%= step[2] %><br>
+<% end %>

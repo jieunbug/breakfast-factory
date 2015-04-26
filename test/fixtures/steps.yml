@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  description: MyText
+  active: false
+  order_in_recipe: 1
+  recipe_id: 1
+
+two:
+  description: MyText
+  active: false
+  order_in_recipe: 1
+  recipe_id: 1
