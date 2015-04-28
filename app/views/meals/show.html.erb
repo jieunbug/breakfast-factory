@@ -1,7 +1,10 @@
 <h1>
-<%= @meal.name %>: <%= Recipe.find(@meal.recipe01).name %> & <%= Recipe.find(@meal.recipe02).name %>
+<%= @meal.name %>: <%= link_to Recipe.find(@meal.recipe01).name, recipe_path(@meal.recipe01) %> & <%= link_to Recipe.find(@meal.recipe02).name, recipe_path(@meal.recipe02) %>
 </h1>
 
 <% @list.each do |step| %>
 <%= step[3] %>: <%= step[2] %><br>
 <% end %>
+
+
+    
