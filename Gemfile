@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+#cocoon
+gem 'cocoon'
 #Timor
 gem 'rails_12factor', group: :production
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

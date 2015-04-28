@@ -1,0 +1,8 @@
+<h1>
+<%= @recipe.name %>
+</h1>
+
+<% @steps.each do |step| %>
+	<%= step.order_in_recipe %>. <%= step.description %>
+	<br>
+	<% end %>
