@@ -6,3 +6,6 @@
 	<%= step.order_in_recipe %>. <%= step.description %>
 	<br>
 	<% end %>
+
+<br>
+<%= link_to 'Delete Recipe', recipe_path(@recipe), method: :delete %>

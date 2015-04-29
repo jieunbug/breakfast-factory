@@ -5,6 +5,6 @@
 <% @list.each do |step| %>
 <%= step[3] %>: <%= step[2] %> (<%= step[0]%>)<br>
 <% end %>
-
-
     
+<br>
+<%= link_to 'Delete Meal', meal_path(@meal), method: :delete %>

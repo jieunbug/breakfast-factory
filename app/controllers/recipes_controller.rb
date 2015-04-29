@@ -15,12 +15,20 @@ class RecipesController < ApplicationController
 
   def create
 	@recipe = Recipe.new(recipe_params)
-		if @recipe.save
+		#conditional to prevent saving non-unique order_in_recipe for a step - throw them in an array and check for dupes
+    if @recipe.save
 			redirect_to @recipe
 		else
 			render :new
 		end
   end
+
+  def destroy
+    @recipe = Recipe.find(params[:id])
+    @recipe.destroy
+    redirect_to recipes_path
+  end
+
 
 end
 
