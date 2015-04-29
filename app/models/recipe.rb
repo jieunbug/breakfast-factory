@@ -3,4 +3,5 @@ class Recipe < ActiveRecord::Base
 	has_many :steps
 	accepts_nested_attributes_for :steps, :reject_if => :all_blank, allow_destroy: true
 	validates :name, presence: true
+
 end
