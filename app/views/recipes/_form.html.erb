@@ -1,12 +1,12 @@
 <%= form_for @recipe do |f| %>
   <%= f.label :recipe_name %> 
   <%= f.text_field :name %>
-  <br>
+  <br><br>
   	<%= f.fields_for :steps do |step| %>
   	<% @recipe.steps.build %>
   		<% render 'step_fields', f: step %>
    	<% end %>
-<%= link_to_add_association 'Add A Step', f, :steps, 'data-association-insertion-node' => "this", 'data-association-insertion-method' => "before" %>
-<br>
+<%= link_to_add_association 'Add a step', f, :steps, 'data-association-insertion-node' => "this", 'data-association-insertion-method' => "before" %>
+<br><br>
 <%= f.submit class: 'btn btn-primary' %>
 <% end %>

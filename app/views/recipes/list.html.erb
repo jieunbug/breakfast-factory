@@ -1,0 +1,14 @@
+<h1>
+<%= @recipe.name %>
+</h1>
+
+<% @steps.each do |step| %>
+	<% step.time.times do %>
+	<%= step.description %>
+	<br>
+	<% end %>
+	<br>
+	<% end %>
+
+<br>
+<%= link_to 'Delete Recipe', recipe_path(@recipe), method: :delete %>
