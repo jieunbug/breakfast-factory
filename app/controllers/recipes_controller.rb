@@ -8,6 +8,11 @@ class RecipesController < ApplicationController
   	@steps = @recipe.steps
   end
 
+  def list
+    @recipe = Recipe.find(params[:id])
+    @steps = @recipe.steps
+  end  
+  
   def new
   	@recipe = Recipe.new
 
@@ -34,5 +39,5 @@ end
 
 private
   def recipe_params
-    params.require(:recipe).permit(:name, steps_attributes: [:id, :description, :active, :recipe_id, :order_in_recipe, :_destroy])
+    params.require(:recipe).permit(:name, steps_attributes: [:id, :description, :active, :recipe_id, :order_in_recipe, :time, :_destroy])
   end
