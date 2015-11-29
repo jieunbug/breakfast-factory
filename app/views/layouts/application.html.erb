@@ -8,10 +8,61 @@
 </head>
 <body>
 
-<%= link_to 'All Meals', meals_path %> | <%= link_to 'All Recipes', recipes_path %> | <%= link_to 'Create a Meal', new_meal_path %> | <%= link_to 'Add a Recipe', new_recipe_path %><br><br>
+<%# mega-container for the whole page begins%>
+<div class="container">
+
+	<%# navbar begins%>
+	<nav class="navbar">
+
+		<%# mobile menu link %>
+		<div class="text-center">
+			<a role="button" class="hidden-md hidden-lg" id="mobile-menu-link" data-toggle="collapse" data-target="#mobile-menu">
+				MENU
+			</a> 
+		</div>
+
+		<%# mobile menu %>
+		<div class="collapse hidden-md hidden-lg" id="mobile-menu">
+	    	<ul class="nav nav-stacked text-center">
+		        <li> <%= link_to 'All Meals', meals_path %></li>
+		        <li role="separator" class="divider"></li>
+				<li> <%= link_to 'All Recipes', recipes_path %></li> 
+		        <li role="separator" class="divider"></li>
+				<li> <%= link_to 'Create a Meal', new_meal_path %></li> 
+		        <li role="separator" class="divider"></li>
+				<li> <%= link_to 'Add a Recipe', new_recipe_path %></li>
+	    	</ul>
+		</div> 
+
+		<%# desktop menu %>
+		<div class="hidden-xs hidden-sm" id="desktop-menu">
+	    	<ul class="nav navbar-nav navbar-right">
+		        <li> <%= link_to 'All Meals', meals_path %></li>
+		        <li role="separator" class="divider"></li>
+				<li> <%= link_to 'All Recipes', recipes_path %></li> 
+		        <li role="separator" class="divider"></li>
+				<li> <%= link_to 'Create a Meal', new_meal_path %></li> 
+		        <li role="separator" class="divider"></li>
+				<li> <%= link_to 'Add a Recipe', new_recipe_path %></li>
+	    	</ul>
+		</div> 
+
+		<%# mobile logo %>
+
+		<%# desktop logo %>
+
+	<%# navbar ends%>
+	</nav>
 
 
-<%= yield %>
+<%# page-specific content begins %>
+			<%= yield %>
+<%# page-specific content ends %>
+
+<%# mega-container for the whole page ends%>
+</div>
 
 </body>
+
+
 </html>

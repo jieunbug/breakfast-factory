@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'meals#index'
+  root 'meals#new'
   resources :recipes
   resources :meals
   get 'recipes/list/:id' => 'recipes#list'
