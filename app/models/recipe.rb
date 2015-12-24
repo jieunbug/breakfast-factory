@@ -9,11 +9,23 @@ class Recipe < ActiveRecord::Base
 		require 'open-uri'
 		page = Nokogiri::HTML(open(url))
 		steps_array = page.css('ol.recipe-steps li')
+		
 		recipe_title = page.css('h1.recipe-title').text.strip
 		recipe = Recipe.create(name: recipe_title)
-		steps_array.each_with_index do |step, index|
+		
+		step_number = 0 
+		ingredients_array = page.css('ul.recipe-ingredients li')
+		ingredients_array.each do |ingredient|
+			text = ingredient.text.strip
+			if ingredient_prep_required?(text)
+				recipe.steps.create(order_in_recipe: step_number, active: true, time: 4, description: "Prepare " + text) 
+				step_number += 1
+			end  
+		end 
+		steps_array.each do |step|
 			time = recipe.find_step_time(step.text)
-			new_step = recipe.steps.create(order_in_recipe: index+1, active: true, time: time, description: step.text)
+			recipe.steps.create(order_in_recipe: step_number, active: false, time: time, description: step.text)
+			step_number += 1
 		end 
 		
 		recipe 
@@ -27,5 +39,15 @@ class Recipe < ActiveRecord::Base
 		else 
 			0
 		end 
+	end 
+
+	def self.ingredient_prep_required?(ingredient_text)
+		active_words = ["chopped", "sliced", "diced", "peeled", "minced", "cleaned", "grated", "mashed", "smashed", "juiced", "quartered"]
+		if active_words.any? { |word| ingredient_text.include?(word) }
+			return true 
+		else 
+			return false 
+		end 
+
 	end 
 end
