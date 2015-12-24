@@ -1,2 +1,10 @@
 <h2>Add all the steps for your meal</h2>
 <%= render 'form'%>
+
+<br><br>
+<%= form_tag("/recipes/import", method: "post", class: "form-inline") do %>
+
+  <%= label_tag(:url, "Import from url:") %>
+  <%= text_field_tag(:url,nil, class: 'form-control') %>
+  <%= submit_tag("Import", class: 'btn btn-primary' ) %>
+<% end %>

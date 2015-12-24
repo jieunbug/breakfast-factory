@@ -15,8 +15,13 @@ class RecipesController < ApplicationController
   
   def new
   	@recipe = Recipe.new
-
   end
+
+  def import
+
+    recipe = Recipe.nyt_import(params[:url])
+    redirect_to recipe
+  end 
 
   def create
 	@recipe = Recipe.new(recipe_params)
