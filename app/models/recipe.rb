@@ -32,10 +32,13 @@ class Recipe < ActiveRecord::Base
 	end 
 
 	def find_step_time(step_text)
-		index = step_text.index("minutes")
-		if index 
-			minutes_text = step_text[index-9..index+7]
-			step_time = minutes_text[/\d+/].to_i 
+		
+		if index = step_text.index("minutes")
+			time_text = step_text[index-9..index+7]
+			step_time = time_text[/\d+/].to_i 
+		elsif index = step_text.index("hours")
+			time_text = step_text[index-9..index+5]
+			step_time = time_text[/\d+/].to_i * 60
 		else 
 			0
 		end 
