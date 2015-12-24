@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :recipes
   resources :meals
   get 'recipes/list/:id' => 'recipes#list'
+  post 'recipes/import' => 'recipes#import'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
